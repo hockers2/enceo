@@ -6,7 +6,7 @@ from bot.get_cfg import get_config
 
 
 class Localisation:
-    START_TEXT = "Hello, \n\nThis is a Telegram <b>Video Encoder Bot</b>. \n\n<b>Please send me any Telegram big video file I will compress it as s small video file!</b> \n\n/help for more details. \n\nOwner : @Sensei_Rimuru"
+    START_TEXT = "Hello, \n\nThis is a Telegram <b>Video Encoder Bot</b>. \n\n<b>Please send me any Telegram big video file I will compress it as s small video file!</b> \n\n/help for more details. \n\nOwner : @Ded_IQ"
    
     ABS_TEXT = " Please don't be selfish."
     
@@ -23,7 +23,7 @@ class Localisation:
     
     RCHD_TG_API_LIMIT = "Downloaded in {} seconds.\nDetected File Size: {}\nSorry. But, I cannot upload files greater than 1.95GB due to Telegram API limitations."
     
-    COMPRESS_SUCCESS = "ᴇɴᴄᴏᴅᴇᴅ ʙʏ [@Anime_Sensei_Network]"
+    COMPRESS_SUCCESS = "ᴇɴᴄᴏᴅᴇᴅ ʙʏ [@HG_Anime ]"
 
     COMPRESS_PROGRESS = "🕛 ETA: {}\n♻️ Progress: {}%"
 
