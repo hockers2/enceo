@@ -43,12 +43,12 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     ##"-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Telegram~ @HG_Anime",
      ## -vf eq=gamma=1.4:saturation=
     #lol 😂
-    crf.append("28")
+    crf.append("26")
     codec.append("libx264")
-    resolution.append("854x480")
+    resolution.append("1280x720")
     preset.append("veryfast")
     audio_b.append("40k")
-    watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=@Telegram~ @HG_Anime "')
+    watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=@Telegram~@HG_Anime "')
     file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" {watermark[0]}  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y'
     COMPRESSION_START_TIME = time.time()
     process = await asyncio.create_subprocess_shell(
@@ -132,7 +132,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     r = stderr.decode()
     try:
         if er:
-           await message.edit_text(str(er) + "\n\n**ERROR** Contact @TheBatmanShan")
+           await message.edit_text(str(er) + "\n\n**ERROR** Contact @Ded_Iq")
            os.remove(videofile)
            os.remove(out_put_file_name)
            return None
