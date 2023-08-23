@@ -43,9 +43,9 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     ##"-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Telegram~ @HG_Anime",
      ## -vf eq=gamma=1.4:saturation=
     #lol 😂
-    crf.append("26")
+    crf.append("25")
     codec.append("libx264")
-    resolution.append("1280x720")
+    resolution.append("1920x1080")
     preset.append("veryfast")
     audio_b.append("40k")
     watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=@Telegram~@HG_Anime "')
