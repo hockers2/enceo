@@ -40,7 +40,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     with open(progress, 'w') as f:
       pass
     ##  -metadata title='@HG_Anime [Join https://t.me/HG_Anime]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Anime Sensei Network'
-    ##"-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Telegram~ @HG_Anime",
+    ##"-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "",
      ## -vf eq=gamma=1.4:saturation=
     #lol 😂
     crf.append("25")
