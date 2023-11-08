@@ -35,7 +35,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     kk = video_file.split("/")[-1]
     aa = kk.split(".")[-1]
     out_put_file_name = kk.replace(f".{aa}", ".mkv")
-    #out_put_file_name = video_file + "_compressed" + ".mkv"
+    #out_put_file_name = video_file + "_compressed" + "[@HG_Anime].mkv"
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
       pass
