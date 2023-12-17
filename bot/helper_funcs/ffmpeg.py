@@ -39,17 +39,17 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
       pass
-    ##  -metadata title='@HG_Anime [Join https://t.me/HG_Anime]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Anime Sensei Network'
+    ##  -metadata title='@HG_Anime [Join https://t.me/HG_Anime]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='HG Anime'
     ##"-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "",
      ## -vf eq=gamma=1.4:saturation=
     #lol 😂
-    crf.append("25")
+    crf.append("19")
     codec.append("libx264")
-    resolution.append("1920x1080")
-    preset.append("veryfast")
-    audio_b.append("40k")
-    watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text= "Telegram~@HG_Anime')
-    file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" {watermark[0]}  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y'
+    resolution.append("3840x2160")
+    preset.append("slow")
+    audio_b.append("512k")
+    watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=29:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text= "Telegram~@HG_Anime')
+    file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" {watermark[0]}  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 800k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y'
     COMPRESSION_START_TIME = time.time()
     process = await asyncio.create_subprocess_shell(
           file_genertor_command,
