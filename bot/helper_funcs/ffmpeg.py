@@ -1,9 +1,10 @@
+
 import logging
 logging.basicConfig(
     level=logging.DEBUG, 
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger(name)
 
 import asyncio
 import os
@@ -41,8 +42,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       pass
    ## -metadata title='@HG_Anime [Join https://t.me/HG_Anime]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='HG Anime'
    ## "-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "",
-     - vf
-     - eq=gamma=1.4:saturation=
+     -vf eq=gamma=1.4:saturation=
     #lol 😂
     crf.append("28")
     codec.append("libx264")
@@ -81,8 +81,9 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         progress=re.findall("progress=(\w+)", text)
         speed=re.findall("speed=(\d+\.?\d*)", text)
         if len(frame):
-         frame = int(frame[-1])
-        else:
+          frame = int(frame[-1])
+
+else:
           frame = 1;
         if len(speed):
           speed = speed[-1]
@@ -112,4 +113,106 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         stats = f'⚡ <b>ᴇɴᴄᴏᴅɪɴɢ ɪɴ ᴘʀᴏɢʀᴇss</b>\n\n' \
                 f'🕛 <b>ᴛɪᴍᴇ ʟᴇғᴛ:</b> {ETA}\n\n' \
                 f'{progress_str}\n'
-        
+        try:
+          await message.edit_text(
+            text=stats,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [ 
+                        InlineKeyboardButton('❌ ᴄᴀɴᴄᴇʟ ❌', callback_data='fuckingdo') # Nice Call 🤭
+                    ]
+                ]
+            )
+          )
+        except:
+            pass
+        try:
+          await bug.edit_text(text=stats)
+        except:
+          pass
+
+    stdout, stderr = await process.communicate()
+    r = stderr.decode()
+    try:
+        if er:
+           await message.edit_text(str(er) + "\n\nERROR Contact @Ded_Iq")
+           os.remove(videofile)
+           os.remove(out_put_file_name)
+           return None
+    except BaseException:
+            pass
+    #if( not isDone):
+      #return None
+    e_response = stderr.decode().strip()
+    t_response = stdout.decode().strip()
+    LOGGER.info(e_response)
+    LOGGER.info(t_response)
+    del pid_list[0]
+    if os.path.lexists(out_put_file_name):
+        return out_put_file_name
+    else:
+        return None
+
+async def media_info(saved_file_path):
+  process = subprocess.Popen(
+    [
+      'ffmpeg', 
+      "-hide_banner", 
+      '-i', 
+      saved_file_path
+    ], 
+    stdout=subprocess.PIPE, 
+    stderr=subprocess.STDOUT
+  )
+  stdout, stderr = process.communicate()
+  output = stdout.decode().strip()
+  duration = re.search("Duration:\s*(\d*):(\d*):(\d+\.?\d*)[\s\w*$]",output)
+  bitrates = re.search("bitrate:\s*(\d+)[\s\w*$]",output)
+
+  if duration is not None:
+    hours = int(duration.group(1))
+    minutes = int(duration.group(2))
+    seconds = math.floor(float(duration.group(3)))
+    total_seconds = ( hours * 60 * 60 ) + ( minutes * 60 ) + seconds
+  else:
+    total_seconds = None
+  if bitrates is not None:
+    bitrate = bitrates.group(1)
+  else:
+    bitrate = None
+  return total_seconds, bitrate
+
+async def take_screen_shot(video_file, output_directory, ttl):
+    out_put_file_name = os.path.join(
+        output_directory,
+        str(time.time()) + ".jpg"
+    )
+    if video_file.upper().endswith(("MKV", "MP4", "WEBM")):
+        file_genertor_command = [
+            "ffmpeg",
+            "-ss",
+            str(ttl),
+            "-i",
+            video_file,
+            "-vframes",
+            "1",
+            out_put_file_name
+        ]
+
+        process = await asyncio.create_subprocess_exec(
+            *file_genertor_command,
+            # stdout must a pipe to be accessible as process.stdout
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        # Wait for the subprocess to finish
+
+stdout, stderr = await process.communicate()
+        e_response = stderr.decode().strip()
+        t_response = stdout.decode().strip()
+    #
+    if os.path.lexists(out_put_file_name):
+        return out_put_file_name
+    else:
+        return None
+# senpai I edited this,  maybe if it is wrong correct it
