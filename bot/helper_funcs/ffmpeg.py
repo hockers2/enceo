@@ -3,7 +3,7 @@ logging.basicConfig(
     level=logging.DEBUG, 
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
-LOGGER = logging.getLogger(name)
+LOGGER = logging.getLogger(__name__)
 
 import asyncio
 import os
@@ -81,7 +81,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if len(frame):
           frame = int(frame[-1])
 
-else:
+        else:
           frame = 1;
         if len(speed):
           speed = speed[-1]
@@ -205,7 +205,7 @@ async def take_screen_shot(video_file, output_directory, ttl):
         )
         # Wait for the subprocess to finish
 
-stdout, stderr = await process.communicate()
+        stdout, stderr = await process.communicate()
         e_response = stderr.decode().strip()
         t_response = stdout.decode().strip()
     #
