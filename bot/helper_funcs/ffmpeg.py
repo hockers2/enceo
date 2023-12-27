@@ -41,7 +41,6 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       pass
    ## -metadata title='@HG_Anime [Join https://t.me/HG_Anime]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='HG Anime'
    ## "-metadata", "title=@HG_Anime", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "",
-     -vf eq=gamma=1.4:saturation=
     #lol 😂
     crf.append("28")
     codec.append("libx264")
